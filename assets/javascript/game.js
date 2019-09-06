@@ -1,16 +1,47 @@
-        //Pseudo Code
 //1. WHat will I need to make this game?
-//I will need an alphabet array, variable 
-//I will need a 'for'loop??
-// I will need if/else/else if statements for right and wrong guesses??
-//I will need to use document.getElementById().innerHTML
+//alphabet array for computer to choose random letter
+var wins = 0;
+var losses = 0;
+var guessesRemaining = 9;
 
-//2. How is this game played?
-//  Player loses a guess each time the wrong letter is pressed.
-//  Player wins when the correct letter is pressed
-//  The game resets after player makes the correct guess
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var compIndex;
+var compChoice;
 
-//3. What will the computer do when player presses the correct letter?
-//  When the wrong letter is guessed the remaining Guesses decrease by 1 from 9 until 0 guesses remain, game over.
-//If the right letter is pressed the Wins increase by one
-//If all 9 guesses are used, the Loss increases by 1.
+displayGuesses();
+setLetter();
+
+function displayGuesses() {
+    document.querySelector("#guessesLeft").innerHTML = guessesRemaining;
+    
+}
+function setLetter(){
+    compIndex = Math.floor(Math.random() * alphabet.length);
+    compChoice = alphabet[compIndex];
+    console.log("comp choice " + compChoice);
+
+}
+document.querySelector("#guessesLeft").innerHTML = guessesRemaining;
+// console.log("comp index " + compIndex);
+// console.log("comp choice " + compChoice);
+
+document.onkeyup = function(event){
+    var letter = event.key.toLowerCase();
+    //console.log(letter);
+    if(letter === compChoice){
+        wins++
+        guessesRemaining = 9;
+        console.log("Num win " + wins);
+        setLetter()
+    } else{
+        guessesRemaining--
+        displayGuesses()
+        console.log("remaining lives " + guessesRemaining)
+        if(guessesRemaining === 0){
+            console.log("You lose")
+            losses++
+            guessesRemaining = 9;
+            setLetter()
+        }
+    }
+}
