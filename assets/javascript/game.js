@@ -4,7 +4,7 @@
 //on keyup to display keys guessed???
 
 let wins = 0; //will increase +1 when correct letter is chosen
-let losses = 0; //will increase by won when 
+let losses = 0; //will increase by one when guessesRemaining reaches 0
 let guessesRemaining = 9;
 let guessedLetter = []
 
@@ -19,6 +19,7 @@ function displayGuesses() {
     document.querySelector("#guessesLeft").innerHTML = guessesRemaining;
     document.querySelector("#wins").innerHTML = wins;
     document.querySelector("#losses").innerHTML = losses;
+    document.querySelector("#userGuesses").innerHTML = guessedLetter.join(", ");
 }
 
 // <--------computer picks a letter at the start of the game-------->
@@ -33,6 +34,8 @@ function setLetter(){
 document.onkeyup = function(event){
     let letter = event.key.toLowerCase();
     //console.log(letter);
+    guessedLetter.push(letter)
+    
     let user = event.key.toLowerCase();
     if(letter === compChoice){
         wins++
@@ -52,5 +55,6 @@ document.onkeyup = function(event){
         }
     }
 
-} //I think i need a for loop to display in the guessedLetter array that is set up and use .push
+} 
+
 
