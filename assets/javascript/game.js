@@ -3,14 +3,14 @@
 //variable counters for wins, losses, guesses remaining
 //on keyup to display keys guessed???
 
-var wins = 0; //will increase +1 when correct letter is chosen
-var losses = 0; //will increase by won when 
-var guessesRemaining = 9;
-var guessedLetter = []
+let wins = 0; //will increase +1 when correct letter is chosen
+let losses = 0; //will increase by won when 
+let guessesRemaining = 9;
+let guessedLetter = []
 
-var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var compIndex;
-var compChoice;
+let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let compIndex;
+let compChoice;
 
 displayGuesses();
 setLetter();
@@ -25,7 +25,7 @@ function displayGuesses() {
 function setLetter(){
     compIndex = Math.floor(Math.random() * alphabet.length);
     compChoice = alphabet[compIndex];
-   console.log("comp choice " + compChoice);
+   console.log("comp choice: " + compChoice);
 };
 // console.log("comp index " + compIndex);
 // console.log("comp choice " + compChoice);
