@@ -31,9 +31,9 @@ function setLetter(){
 // console.log("comp choice " + compChoice);
 //<---------listens for the letter pressed. if pressed correctly win counter goes up by one---->
 document.onkeyup = function(event){
-    var letter = event.key.toLowerCase();
+    let letter = event.key.toLowerCase();
     //console.log(letter);
-    var user = event.key.toLowerCase();
+    let user = event.key.toLowerCase();
     if(letter === compChoice){
         wins++
         guessesRemaining = 9;
